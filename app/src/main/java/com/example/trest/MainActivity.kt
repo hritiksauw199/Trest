@@ -24,6 +24,10 @@ class MainActivity : ComponentActivity() {
         val checkBox2 = findViewById<CheckBox>(R.id.checkBox2) as CheckBox
         val checkBox3 = findViewById<CheckBox>(R.id.checkBox3) as CheckBox
         val checkBox4 = findViewById<CheckBox>(R.id.checkBox4) as CheckBox
+        val checkBox5 = findViewById<CheckBox>(R.id.checkBox5) as CheckBox
+        val checkBox6 = findViewById<CheckBox>(R.id.checkBox6) as CheckBox
+        val checkBox7 = findViewById<CheckBox>(R.id.checkBox7) as CheckBox
+        val checkBox8 = findViewById<CheckBox>(R.id.checkBox8) as CheckBox
         val btn = findViewById<Button>(R.id.button) as Button
 
 
