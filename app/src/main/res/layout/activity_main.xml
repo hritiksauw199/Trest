@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="207dp"
+            android:layout_height="115dp"
+            android:text="Tomato" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="206dp"
+            android:layout_height="115dp"
+            android:baselineAligned="false"
+            android:text="Onion" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="207dp"
+            android:layout_height="115dp"
+            android:text="Chicken" />
+
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="206dp"
+            android:layout_height="115dp"
+            android:baselineAligned="false"
+            android:text="Mushroom" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Click"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
