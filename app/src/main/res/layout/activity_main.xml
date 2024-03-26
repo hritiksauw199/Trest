@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="ExtraText">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -72,9 +74,9 @@
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="165dp"
+            android:layout_width="207dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="35dp"
+            android:paddingLeft="0dp"
             android:paddingTop="-100dp"
             android:text="Tomato"
             android:textAlignment="center"
@@ -85,7 +87,7 @@
             android:id="@+id/textView2"
             android:layout_width="246dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="45dp"
+            android:paddingLeft="-30dp"
             android:paddingTop="-100dp"
             android:text="Onion"
             android:textAlignment="center"
@@ -122,5 +124,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="See Recipes" />
+
 
 </LinearLayout>
