@@ -64,10 +64,12 @@
 
                         <CheckBox
                             android:id="@+id/checkBox1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="36dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15dp"
-                            android:minHeight="48dp" />
+                            android:minHeight="48dp"
+                            android:text="Tomato"
+                            android:textColor="@android:color/transparent" />
 
                         <ImageView
                             android:id="@+id/imageView1"
@@ -91,11 +93,13 @@
 
                         <CheckBox
                             android:id="@+id/checkBox2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="51dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15dp"
                             android:minWidth="48dp"
-                            android:minHeight="48dp" />
+                            android:minHeight="48dp"
+                            android:text="Onion"
+                            android:textColor="@android:color/transparent" />
 
                         <ImageView
                             android:id="@+id/imageView2"
@@ -124,7 +128,7 @@
                         android:id="@+id/textView1"
                         android:layout_width="207dp"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="0dp"
+                        android:paddingLeft="-5dp"
                         android:paddingTop="-100dp"
                         android:text="Tomato"
                         android:textAlignment="center"
@@ -158,10 +162,12 @@
 
                         <CheckBox
                             android:id="@+id/checkBox3"
-                            android:layout_width="wrap_content"
+                            android:layout_width="38dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15dp"
-                            android:minHeight="48dp" />
+                            android:minHeight="48dp"
+                            android:text="Chicken"
+                            android:textColor="@android:color/transparent" />
 
                         <ImageView
                             android:id="@+id/imageView3"
@@ -185,11 +191,13 @@
 
                         <CheckBox
                             android:id="@+id/checkBox4"
-                            android:layout_width="wrap_content"
+                            android:layout_width="45dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15dp"
                             android:minWidth="48dp"
-                            android:minHeight="48dp" />
+                            android:minHeight="48dp"
+                            android:text="Mushroom"
+                            android:textColor="@android:color/transparent" />
 
                         <ImageView
                             android:id="@+id/imageView4"
@@ -251,10 +259,12 @@
 
                         <CheckBox
                             android:id="@+id/checkBox5"
-                            android:layout_width="wrap_content"
+                            android:layout_width="36dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15dp"
-                            android:minHeight="48dp" />
+                            android:minHeight="48dp"
+                            android:text="Chilli"
+                            android:textColor="@android:color/transparent" />
 
                         <ImageView
                             android:id="@+id/imageView5"
@@ -279,11 +289,13 @@
 
                         <CheckBox
                             android:id="@+id/checkBox6"
-                            android:layout_width="wrap_content"
+                            android:layout_width="40dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15dp"
                             android:minWidth="48dp"
-                            android:minHeight="48dp" />
+                            android:minHeight="48dp"
+                            android:text="Butter"
+                            android:textColor="@android:color/transparent" />
 
                         <ImageView
                             android:id="@+id/imageView6"
@@ -347,10 +359,12 @@
 
                         <CheckBox
                             android:id="@+id/checkBox7"
-                            android:layout_width="wrap_content"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15dp"
-                            android:minHeight="48dp" />
+                            android:minHeight="48dp"
+                            android:text="Flour"
+                            android:textColor="@android:color/transparent" />
 
                         <ImageView
                             android:id="@+id/imageView7"
@@ -375,11 +389,13 @@
 
                         <CheckBox
                             android:id="@+id/checkBox8"
-                            android:layout_width="wrap_content"
+                            android:layout_width="36dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15dp"
                             android:minWidth="48dp"
-                            android:minHeight="48dp" />
+                            android:minHeight="48dp"
+                            android:text="Capsicum"
+                            android:textColor="@android:color/transparent" />
 
                         <ImageView
                             android:id="@+id/imageView8"
