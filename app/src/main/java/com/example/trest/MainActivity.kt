@@ -1,50 +1,67 @@
 package com.example.trest
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
-import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.trest.ui.theme.TrestTheme
 
 class MainActivity : ComponentActivity() {
+
+    private val selectedIngredients = mutableListOf<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val checkBox1 = findViewById<CheckBox>(R.id.checkBox1) as CheckBox
-        val checkBox2 = findViewById<CheckBox>(R.id.checkBox2) as CheckBox
-        val checkBox3 = findViewById<CheckBox>(R.id.checkBox3) as CheckBox
-        val checkBox4 = findViewById<CheckBox>(R.id.checkBox4) as CheckBox
-        val checkBox5 = findViewById<CheckBox>(R.id.checkBox5) as CheckBox
-        val checkBox6 = findViewById<CheckBox>(R.id.checkBox6) as CheckBox
-        val checkBox7 = findViewById<CheckBox>(R.id.checkBox7) as CheckBox
-        val checkBox8 = findViewById<CheckBox>(R.id.checkBox8) as CheckBox
-        val btn = findViewById<Button>(R.id.button) as Button
+        val checkBox1 = findViewById<CheckBox>(R.id.checkBox1)
+        val checkBox2 = findViewById<CheckBox>(R.id.checkBox2)
+        val checkBox3 = findViewById<CheckBox>(R.id.checkBox3)
+        val checkBox4 = findViewById<CheckBox>(R.id.checkBox4)
+        val checkBox5 = findViewById<CheckBox>(R.id.checkBox5)
+        val checkBox6 = findViewById<CheckBox>(R.id.checkBox6)
+        val checkBox7 = findViewById<CheckBox>(R.id.checkBox7)
+        val checkBox8 = findViewById<CheckBox>(R.id.checkBox8)
+        val recipesButton = findViewById<Button>(R.id.button)
+
+        checkBox1.setOnCheckedChangeListener { _, isChecked ->
+            updateSelectedIngredients("Tomato", isChecked)
+        }
+        checkBox2.setOnCheckedChangeListener { _, isChecked ->
+            updateSelectedIngredients("Onion", isChecked)
+        }
+        checkBox3.setOnCheckedChangeListener { _, isChecked ->
+            updateSelectedIngredients("Chicken", isChecked)
+        }
+        checkBox4.setOnCheckedChangeListener { _, isChecked ->
+            updateSelectedIngredients("Mushroom", isChecked)
+        }
+        checkBox5.setOnCheckedChangeListener { _, isChecked ->
+            updateSelectedIngredients("Chilli", isChecked)
+        }
+        checkBox6.setOnCheckedChangeListener { _, isChecked ->
+            updateSelectedIngredients("Butter", isChecked)
+        }
+        checkBox7.setOnCheckedChangeListener { _, isChecked ->
+            updateSelectedIngredients("Flour", isChecked)
+        }
+        checkBox8.setOnCheckedChangeListener { _, isChecked ->
+            updateSelectedIngredients("Capsicum", isChecked)
+        }
 
 
-        btn.setOnClickListener {
-            if (checkBox1.isChecked == true && checkBox2.isChecked == true)
-            {
-                Toast.makeText(this@MainActivity,
-                    "All Selected", Toast.LENGTH_LONG)
-                    .show()
-            }else if(checkBox3.isChecked == true && checkBox4.isChecked == true)
-            {
-                Toast.makeText(this@MainActivity,
-                    "Last 2 selected", Toast.LENGTH_LONG)
-                    .show()
-            }
 
+        recipesButton.setOnClickListener {
+            val intent = Intent(this, RecipeTab::class.java)
+            startActivity(intent)
+        }
+    }
 
+    private fun updateSelectedIngredients(ingredient: String, isChecked: Boolean) {
+        if (isChecked) {
+            selectedIngredients.add(ingredient)
+        } else {
+            selectedIngredients.remove(ingredient)
         }
     }
 }

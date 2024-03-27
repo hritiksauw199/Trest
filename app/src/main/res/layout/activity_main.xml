@@ -427,6 +427,14 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/recipeRecommendationsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                </LinearLayout>
+
 
 
                 <Button
@@ -439,6 +447,7 @@
                     android:textSize="20sp"
                     android:fontFamily="casual"
                     android:textStyle="bold"/>
+
 
             </LinearLayout>
 

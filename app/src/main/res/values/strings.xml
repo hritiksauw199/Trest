@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Trest</string>
+    <string name="testing_for_new_activity">Testing for new activity</string>
+    <string name="todo">TODO</string>
 </resources>
