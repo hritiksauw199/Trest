@@ -1,16 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="match_parent"
+    <!-- Recipe Name -->
+    <TextView
+        android:id="@+id/textView_recipe_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name" />
-</LinearLayout>
+        android:text="Recipe Name"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Recipe Image -->
+    <ImageView
+        android:id="@+id/imageView_recipe_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/textView_recipe_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/butter1" />
+
+    <!-- Recipe Description -->
+    <TextView
+        android:id="@+id/textView_recipe_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView_recipe_image"
+        android:layout_marginTop="16dp"
+        android:text="Recipe Description"
+        android:textSize="18sp"/>
+
+    <!-- Recipe Instructions -->
+    <TextView
+        android:id="@+id/textView_recipe_instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView_recipe_description"
+        android:layout_marginTop="16dp"
+        android:text="Recipe Instructions"
+        android:textSize="18sp"/>
+
+</RelativeLayout>
