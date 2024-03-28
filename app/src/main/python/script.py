@@ -13,7 +13,7 @@ def process_entry(entry):
     ingredients = re.findall(r'"([^"]*)"', entry)
     return ingredients
 
-df1 = pd.read_csv('app/src/main/assets/recipes.csv')
+df1 = pd.read_csv('app/src/main/assets/data.csv')
 df1['Ingredients'] = df1['RecipeIngredientParts'].apply(process_entry)
 df1 = df1[['Name', 'Ingredients']]
 
@@ -31,7 +31,7 @@ def recipe_recom(input_ingredients):
     with open("app/src/main/assets/tfidf_vectorizer.pkl", "rb") as file:
         vec = pickle.load(file)
 
-    data = pd.read_csv('app/src/main/assets/recipes.csv')
+    data = pd.read_csv('app/src/main/assets/data.csv')
     recipe = recommend_recipe_general(model, vec, data, input_ingredients)
 
     return recipe
