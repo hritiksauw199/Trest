@@ -1,24 +1,38 @@
 package com.example.trest
 
 import Recipe
+import RecommendationManager
 import android.os.Bundle
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import android.content.Context
+import com.chaquo.python.PyObject
+import com.chaquo.python.Python
+import com.chaquo.python.android.AndroidPlatform
+import org.apache.commons.io.IOUtils
+import org.json.JSONArray
+import java.io.InputStream
+
 
 class RecipeTab : ComponentActivity() {
+
+    private lateinit var recommendationManager: RecommendationManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recipe_tab)
 
-        val selectedIngredients = intent.getStringArrayListExtra("selectedIngredients")
+        val selectedIngredients = intent.getStringArrayListExtra("selectedIngredients") ?: ArrayList()
 
-        // Determine the recommended recipe based on selected ingredients
+        //val recommendationManager = RecommendationManager(this)
+        //val recommendedRecipes = recommendationManager.getRecommendedRecipes(selectedIngredients)
+        //println(recommendedRecipes)
+
         val recommendedRecipe = determineRecommendedRecipe(selectedIngredients)
 
         // Update the placeholders with recipe information
         updateRecipeInformation(recommendedRecipe)
+
     }
 
     private fun determineRecommendedRecipe(selectedIngredients: ArrayList<String>?): Recipe {
@@ -26,7 +40,7 @@ class RecipeTab : ComponentActivity() {
         val ingredientToRecipeMap = mapOf(
             listOf("Tomato", "Onion") to Recipe("Pizza",
                 "Delicious pizza with tomato and onion toppings.",
-                "Instructions for making pizza...", R.drawable.mushroom1),
+                "Instructions for making pizza..."),
             // Add more mappings as needed
         )
 
@@ -39,7 +53,7 @@ class RecipeTab : ComponentActivity() {
 
         // If no matching recipe found, return a default recipe or handle appropriately
         return Recipe("Unknown Recipe", "Recipe not found for selected ingredients.",
-            "Select other ingredients", R.drawable.tomato)
+            "Select other ingredients")
     }
 
 
@@ -49,7 +63,7 @@ class RecipeTab : ComponentActivity() {
         findViewById<TextView>(R.id.textView_recipe_description).text = recipe.description
         findViewById<TextView>(R.id.textView_recipe_instructions).text = recipe.instructions
         // Update ImageView with recipe image (you may need to load the image asynchronously)
-        findViewById<ImageView>(R.id.imageView_recipe_image).setImageResource(recipe.imageResource)
+        //findViewById<ImageView>(R.id.imageView_recipe_image).setImageResource(recipe.imageResource)
     }
 
 

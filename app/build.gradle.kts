@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.chaquo.python")
 }
 
 android {
@@ -17,7 +18,17 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
+
+            ndk {
+                // On Apple silicon, you can omit x86_64.
+                abiFilters += listOf("arm64-v8a", "x86_64")
+            }
+
         }
+    }
+    flavorDimensions += "pyVersion"
+    productFlavors {
+        create("py311") { dimension = "pyVersion" }
     }
 
     buildTypes {
@@ -48,6 +59,26 @@ android {
         }
     }
 }
+chaquopy {
+    productFlavors {
+        getByName("py311") { version = "3.11" }
+    }
+
+    defaultConfig {
+        buildPython("C:/Users/hrith/AppData/Local/Programs/Python/Python311/python.exe")
+
+        pip {
+            // A requirement specifier, with or without a version number:
+            install("pandas")
+            //install("pickle")
+            //install("scikit-learn")
+        }
+    }
+    sourceSets.getByName("main") {
+        setSrcDirs(listOf("src/main/python"))
+    }
+}
+
 
 dependencies {
 
@@ -70,4 +101,6 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation("commons-io:commons-io:2.11.0")
+
 }

@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import androidx.activity.ComponentActivity
+import com.chaquo.python.Python
+import com.chaquo.python.android.AndroidPlatform
 
 class MainActivity : ComponentActivity() {
 
