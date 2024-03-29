@@ -41,6 +41,9 @@ class RecipeTab : ComponentActivity() {
             listOf("Tomato", "Onion") to Recipe("Pizza",
                 "Delicious pizza with tomato and onion toppings.",
                 "Instructions for making pizza..."),
+            listOf("Tomato", "Onion", "Chicken") to Recipe("Pizza",
+                "Delicious pizza with tomato and onion toppings.",
+                "Instructions for making pizza...")
             // Add more mappings as needed
         )
 
