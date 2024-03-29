@@ -65,7 +65,7 @@ chaquopy {
     }
 
     defaultConfig {
-        buildPython("C:/Users/hrith/AppData/Local/Programs/Python/Python311/python.exe")
+        //buildPython("C:/Users/hrith/AppData/Local/Programs/Python/Python311/python.exe")
 
         pip {
             // A requirement specifier, with or without a version number:
