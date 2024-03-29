@@ -55,7 +55,7 @@ class RecipeTab : ComponentActivity() {
         }
 
         // If no matching recipe found, return a default recipe or handle appropriately
-        return Recipe("Unknown Recipe", "Recipe not found for selected ingredients.",
+        return Recipe("Unknown Recipe", "Recipes not found for selected ingredients.",
             "Select other ingredients")
     }
 
