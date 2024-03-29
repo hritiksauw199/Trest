@@ -1,7 +1,9 @@
 package com.example.trest
 
+import IngredientsManager
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
@@ -11,7 +13,8 @@ import com.chaquo.python.android.AndroidPlatform
 
 class MainActivity : ComponentActivity() {
 
-    private val selectedIngredients = mutableListOf<String>()
+    val selectedIngredients = mutableListOf<String>()
+    private val ingredientsManager = IngredientsManager()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +34,8 @@ class MainActivity : ComponentActivity() {
             val checkBox = view as CheckBox
             val isChecked = checkBox.isChecked
             val ingredient = checkBox.text.toString()
-            updateSelectedIngredients(ingredient, isChecked)
+            //updateSelectedIngredients(ingredient, isChecked)
+            ingredientsManager.updateSelectedIngredients(selectedIngredients, ingredient, isChecked)
         }
 
         checkBox1.setOnClickListener(checkBoxClickListener)
@@ -50,11 +54,4 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun updateSelectedIngredients(ingredient: String, isChecked: Boolean) {
-        if (isChecked) {
-            selectedIngredients.add(ingredient)
-        } else {
-            selectedIngredients.remove(ingredient)
-        }
-    }
 }

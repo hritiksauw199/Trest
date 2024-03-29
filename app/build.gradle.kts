@@ -102,5 +102,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation("commons-io:commons-io:2.11.0")
+    testImplementation("org.mockito:mockito-core:3.11.2")
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+
 
 }
