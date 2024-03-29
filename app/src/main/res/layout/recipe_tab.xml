@@ -1,48 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/vgs">
 
-    <!-- Recipe Name -->
-    <TextView
-        android:id="@+id/textView_recipe_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Recipe Name"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <!-- Recipe Image -->
-    <ImageView
-        android:id="@+id/imageView_recipe_image"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_below="@id/textView_recipe_name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/butter1" />
+        <SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15sp"
+            android:layout_marginEnd="15sp"
+            android:layout_marginTop="40dp"
+            android:background="#E5E4E2"
+            android:elevation="10dp"
+            android:queryHint="Search">
 
-    <!-- Recipe Description -->
-    <TextView
-        android:id="@+id/textView_recipe_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imageView_recipe_image"
-        android:layout_marginTop="16dp"
-        android:text="Recipe Description"
-        android:textSize="18sp"/>
+        </SearchView>
 
-    <!-- Recipe Instructions -->
-    <TextView
-        android:id="@+id/textView_recipe_instructions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textView_recipe_description"
-        android:layout_marginTop="16dp"
-        android:text="Recipe Instructions"
-        android:textSize="18sp"/>
+    </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_marginTop="40dp"
+        android:background="#E5E4E2"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/image1_place"
+            android:layout_width="183dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/e5e4e2" />
+
+        <LinearLayout
+            android:layout_width="226dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name1_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text=""
+                android:layout_marginStart="10dp"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/star1_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text=""
+                android:textSize="18sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="203dp"
+        android:orientation="horizontal"
+        android:background="#E5E4E2">
+
+        <ImageView
+            android:id="@+id/image2_place"
+            android:layout_width="185dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/e5e4e2" />
+
+        <LinearLayout
+            android:layout_width="226dp"
+            android:layout_height="215dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name2_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="10dp"
+                android:text=""
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/star2_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text=""
+                android:textSize="18sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:orientation="horizontal"
+        android:background="#E5E4E2">
+
+        <ImageView
+            android:id="@+id/image3_place"
+            android:layout_width="185dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/e5e4e2" />
+
+        <LinearLayout
+            android:layout_width="228dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name3_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="10dp"
+                android:text=""
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/star3_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginStart="10dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:background="#AFE1AF">
+
+        <TextView
+            android:id="@+id/star4_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change Ingredients"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_marginTop="15dp"
+            android:textColor="#5F8575"/>
+
+    </LinearLayout>
+
+</LinearLayout>

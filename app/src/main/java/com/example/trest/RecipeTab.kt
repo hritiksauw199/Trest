@@ -5,13 +5,7 @@ import RecommendationManager
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.ComponentActivity
-import android.content.Context
-import com.chaquo.python.PyObject
-import com.chaquo.python.Python
-import com.chaquo.python.android.AndroidPlatform
-import org.apache.commons.io.IOUtils
-import org.json.JSONArray
-import java.io.InputStream
+import android.widget.ImageView
 
 
 class RecipeTab : ComponentActivity() {
@@ -22,53 +16,82 @@ class RecipeTab : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recipe_tab)
 
-        val selectedIngredients = intent.getStringArrayListExtra("selectedIngredients") ?: ArrayList()
-
         //val recommendationManager = RecommendationManager(this)
         //val recommendedRecipes = recommendationManager.getRecommendedRecipes(selectedIngredients)
         //println(recommendedRecipes)
 
-        val recommendedRecipe = determineRecommendedRecipe(selectedIngredients)
-
+        val selectedIngredients = intent.getStringArrayListExtra("selectedIngredients") ?: ArrayList()
+        val getRecipe = determineRecommendedRecipe(selectedIngredients)
         // Update the placeholders with recipe information
-        updateRecipeInformation(recommendedRecipe)
+        updateRecipeInformation(getRecipe)
+
 
     }
 
-    private fun determineRecommendedRecipe(selectedIngredients: ArrayList<String>?): Recipe {
+    private fun determineRecommendedRecipe(selectedIngredients: ArrayList<String>?): MutableMap<String, Recipe> {
         // Example predefined mapping of ingredients to recipes
         val ingredientToRecipeMap = mapOf(
-            listOf("Tomato", "Onion") to Recipe("Pizza",
-                "Delicious pizza with tomato and onion toppings.",
-                "Instructions for making pizza..."),
-            listOf("Flour", "Mushroom", "Chicken") to Recipe("Butter Chicken",
-                "NN.",
-                "MM")
+            listOf("tomato", "onion", "flour", "capsicum") to Recipe("Pizza",
+                "Delicious pizza with tomato, capsicum and onion toppings.",
+                "Averge rating: 4.3 out of 5.0", imageResources = R.drawable.pizza),
+            listOf("butter", "chicken") to Recipe("Butter Chicken",
+                "Delicious Indian style Butter Chicken",
+                "MM", imageResources = R.drawable.butterchicken),
+            listOf("chicken", "chilli") to Recipe("BBQ Chicken",
+                "A spicy BBQ Chicken awaits!",
+                "In", imageResources = R.drawable.bbqchicken),
+            listOf("tomato", "onion", "mushroom") to Recipe("Mushroom Fry",
+                "Crispy fried mushrooms.",
+                "NN", imageResources = R.drawable.friedmushrooms),
+            listOf("tomato", "onion", "flour", "mushroom") to Recipe("Mushroom Gravy",
+                "Tangy & Spicy Mushroom gravy with Roti",
+                "CC", imageResources = R.drawable.mushroommasala)
             // Add more mappings as needed
         )
 
-        // Find a recipe based on the selected ingredients
-        for ((ingredients, recipe) in ingredientToRecipeMap) {
-            if (selectedIngredients?.containsAll(ingredients) == true) {
-                return recipe
+        val recommendedRecipes = mutableMapOf<String, Recipe>()
+
+        for ((ingredientList, recipe) in ingredientToRecipeMap) {
+            if (selectedIngredients != null && selectedIngredients.all { ingredientList.contains(it.toLowerCase()) }) {
+                recommendedRecipes[recipe.name] = recipe
             }
         }
 
-        // If no matching recipe found, return a default recipe or handle appropriately
-        return Recipe("Unknown Recipe", "Recipes not found for selected ingredients.",
-            "Select other ingredients")
+        return recommendedRecipes
     }
 
+    private fun updateRecipeInformation(recipes: Map<String, Recipe>) {
+        val recipeViews = listOf(
+            Triple(R.id.image1_place, R.id.name1_place, R.id.star1_place),
+            Triple(R.id.image2_place, R.id.name2_place, R.id.star2_place),
+            Triple(R.id.image3_place, R.id.name3_place, R.id.star3_place)
+        )
 
-    private fun updateRecipeInformation(recipe: Recipe) {
-        // Update TextViews and ImageView with recipe information
-        findViewById<TextView>(R.id.textView_recipe_name).text = recipe.name
-        findViewById<TextView>(R.id.textView_recipe_description).text = recipe.description
-        findViewById<TextView>(R.id.textView_recipe_instructions).text = recipe.instructions
-        // Update ImageView with recipe image (you may need to load the image asynchronously)
-        //findViewById<ImageView>(R.id.imageView_recipe_image).setImageResource(recipe.imageResource)
+        var index = 0
+        for ((recipeName, recipe) in recipes) {
+            if (index >= recipeViews.size) {
+                // Handle the case where you have more recipes than available placeholders
+                break
+            }
+
+            val (imageId, nameId, starId) = recipeViews[index]
+
+            // Update image
+            val imageView = findViewById<ImageView>(imageId)
+            // Assuming you have an image for the recipe, you can set it here
+            imageView.setImageResource(recipe.imageResources)
+
+            // Update name
+            val nameTextView = findViewById<TextView>(nameId)
+            nameTextView.text = recipe.name
+
+            // Update instructions
+            val instructionsTextView = findViewById<TextView>(starId)
+            instructionsTextView.text = recipe.description
+
+            index++
+        }
     }
-
 
 }
 
