@@ -79,7 +79,7 @@ class RecipeTab : ComponentActivity() {
             // Update image
             val imageView = findViewById<ImageView>(imageId)
             // Assuming you have an image for the recipe, you can set it here
-            imageView.setImageResource(recipe.imageResources)
+            recipe.imageResources?.let { imageView.setImageResource(it) }
 
             // Update name
             val nameTextView = findViewById<TextView>(nameId)

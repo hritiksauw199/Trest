@@ -1,6 +1,6 @@
 data class Recipe(
     val name: String,
-    val description: String,
-    val instructions: String,// Assuming image resource is an integer ID
-    val imageResources: Int
+    var description: String? = null,
+    var instructions: String? = null,
+    var imageResources: Int? = null
 )

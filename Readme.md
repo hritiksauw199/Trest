@@ -7,6 +7,8 @@ No more kitchen headaches, just tasty meals made easy! :)
 
 A quick glimpse of the app's basic functionality can be viewed here:
 
+https://drive.google.com/file/d/11Kb1W8WNwmdttCmLnMM69nXOY_YiKQxQ/view?usp=sharing
+
 
 
 
@@ -40,7 +42,7 @@ If I were to define UML, I would say I see it as a tool to sketch out the bluepr
 I made these three UML diagrams for this project
 1. [Activity Diagram](UML/activity.png)
 2. [Class Diagram](UML/class_diagram.jpg)
-3. [Use Case Diagram](UML/use_case_diagram.png)
+3. [Use Case Diagram](UML/usecase.png)
 
 
 # 3. DDD
@@ -83,6 +85,30 @@ And for more details on the bugs and how I fixed them, check out the [SonarQube 
 
 
 # 5. Clean Code Development
+
+**The cheatsheet can be found here:** [Cheatsheet](cheatsheet.pdf)
+
+1. **Modularity**: This refers to the practice of breaking down the codebase into smaller, independent modules or components where each module has a specific purpose:
+
+   - `MainActivity`, `IngredientsManager`, `RecipeTab`, `RecommendationManager` each class has their own puropse here.
+
+
+2. **Naming Convention**:Following standard naming convention such as using descriptive names for variables, functions, and classes, following camelCase or snake_case naming conventions.
+   - `selectedIngredients`, `updateSelectedIngredients`, `getRecommendedRecipes` follow camelCase and descriptive convention.
+
+3. **Null Safety**: Null safety is a feature provided by Kotlin to prevent NullPointerExceptions at runtime.
+
+   - In the code, null safety is ensured by using the safe call operator (?.) when accessing properties or methods that might be null, such as `f?.call(ingre)` in `RecommendationManager`.
+
+
+4. **Class reusability**: Instead of duplicating code, classes and objects can be instantiated and reused wherever necessary.
+
+   - The `Recipe data` class is used to represent recipe information throughout the application.
+
+
+5. **Unit Testing**: Unit testing involves testing individual units or components of code in isolation to ensure they function correctly
+
+   - `IngredientsManagerTest` contains the unit-test code which is seperate from the main app module.
 
 
 # 6. Build Management
@@ -168,10 +194,41 @@ As for key shortcuts in Android Studio IDE, here are a few handy ones:
 
 # 10. DSL
 
+**The DSL example snippet can be found here:**[DSL Example](app/src/main/java/DSL.kt)
+
+The code snippet demonstrates the creation of a DSL (Domain Specific Language) for 
+defining recipes in Kotlin. It includes a RecipeBuilder class, DSL marker annotation, 
+and extension function for initializing the DSL.
+
+The output for the above is shown below
+
+![DSL](dsl_output.png)
+
 # 11. Functional Programming
 
 
+1. **Final Data Structures**: The `Recipe data` class represents immutable recipe objects, ensuring that once created, their state cannot be modified.
+
+2. **Side-Effect-Free Functions**: The `updateSelectedIngredients` function in the IngredientsManager class is side-effect-free. It takes input parameters, modifies the selectedIngredients list locally, and returns the updated list without mutating any external state.
+
+3. **Use of Higher-Order Functions**: The `setOnClickListener` function in MainActivity takes a higher-order function (a `View.OnClickListener`) as a parameter to handle checkbox clicks.
+
+4. **Functions as Parameters and Return Values**:
+
+   - The `updateSelectedIngredients` function in **IngredientsManager** takes a function (block: Recipe.() -> Unit) as a parameter to update recipe properties.
+   - The `recipes` function returns a list of recipes, where the recipes are defined within the provided lambda block, demonstrating functions as return values.
+
+5. **Closures / Anonymous Functions**: In the `ingredientsCount` function within the **Recipe** class, the function captures and operates on properties (name, description, instructions) of the Recipe instance, effectively forming a closure.
+
+
 # Future improvements
+
+The app is currently in its basic stage and lots of functionality are to be added.
+For example, 
+- better UI design, 
+- integrate with Flask for better python access
+- develop new sections like Inventory, Community
+- Implement CV for scanning item
 
 # References
 
