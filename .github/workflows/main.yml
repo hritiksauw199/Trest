@@ -20,6 +20,15 @@ jobs:
           java-version: 17
       - name: Build with Gradle
         run: ./gradlew build
+      - name: Run Unit Tests
+        run: ./gradlew test
+      - name: Generate Code Coverage Report
+        run: ./gradlew jacocoTestReport
+      - name: Upload Code Coverage
+        uses: actions/upload-artifact@v4.3.1
+        with: 
+          name: code-coverage
+          path: app/build/reports/jacoco/test/html/
       - name: Upload APK
         uses: actions/upload-artifact@v4.3.1
         with: 
