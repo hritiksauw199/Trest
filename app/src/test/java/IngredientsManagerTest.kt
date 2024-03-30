@@ -33,4 +33,21 @@ class IngredientsManagerTest {
         // Assert
         assertFalse(selectedIngredients.contains(ingredient))
     }
+
+    @Test
+    fun testUpdateSelectedIngredients_AddMultipleIngredients() {
+        // Arrange
+        val selectedIngredients = mutableListOf<String>()
+        val ingredients = listOf("tomato", "onion", "mushroom")
+        val ingredientsManager = IngredientsManager()
+
+        // Act
+        ingredients.forEach { ingredient ->
+            ingredientsManager.updateSelectedIngredients(selectedIngredients, ingredient, true)
+        }
+
+        // Assert
+        assertTrue(selectedIngredients.containsAll(ingredients))
+    }
+
 }
