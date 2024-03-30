@@ -9,12 +9,14 @@ A quick glimpse of the app's basic functionality can be viewed here:
 
 https://drive.google.com/file/d/11Kb1W8WNwmdttCmLnMM69nXOY_YiKQxQ/view?usp=sharing
 
+Link to the dataset used: https://www.kaggle.com/datasets/shuyangli94/food-com-recipes-and-user-interactions
+
 
 
 
 # 1. Git
 
-I've been using Git since my university days, mostly as a portfolio to host my projects. The thing I love the most is how I can host on my projects on Github and access it via different machines or say have multiple people collaborate together (done so in past projects).
+I've been using Git since my university days, mostly as a portfolio to host my projects. The thing I love the most is how I can host all my projects on Github and access it via different machines or say have multiple people collaborate together (done so in past projects).
 
 Even in this project, as I was using multiple IDE (IntelliJ, VSC, Android Studio) it was very seamless to make changes on one IDE and have it reflected and ready to use on another. Additionally, I got to learn about Github Actions through this project which was new to me.
 
@@ -22,7 +24,7 @@ Even in this project, as I was using multiple IDE (IntelliJ, VSC, Android Studio
 
 While working on this project, I faced 2 major hurdles which I rectified using git commands (sadly I forgot to take screenshots of the issues🥲🥲).
 
-1. I accidentally committed the recipe dataset and since it was around 600 it was not pushing to Github. After several trials, I was able to solve it using (it basically removed the file from the staging area)
+1. I accidentally committed the recipe dataset and since it was around 600mb it was not pushing to Github. After several trials, I was able to solve it using (it basically removed the file from the staging area)
 
    `git checkout -- recipes.csv`
 
@@ -56,8 +58,6 @@ DDD for the following project are:
 2. [Event Storming_2](DDD/event_storming_2.png)
 3. [Core-Domain Chart](DDD/core%20domain.png)
 4. [Context Mapping](DDD/mappings.jpg)
-
-A glimpse into the behind-the-scenes of making these diagrams
 
 # 4. Metrics
 
@@ -127,13 +127,11 @@ Lastly, I also utilized the `./gradlew test` test module to validate if all my c
 
 ![Gradle test](images/gradlew_test.png)
 
-**The entire gradle file you can access here**: [Gradle file](app/build.gradle.kts)
+**The entire gradle build file you can access here**: [Gradle file](app/build.gradle.kts)
 
 **The build logs after executing build can be viewed here**: [Gradle Build](build_logs.pdf)
 
 # 7. Unit Test
-
-Unit testing plays a crucial role in ensuring the reliability and correctness of software applications. It involves testing individual units or components of the codebase in isolation to verify that they function as expected.
 
 In my app, I incorporated unit tests to validate the working of various functions within the application. I used the built-in testing framework in the Android Studio IDE.
 
