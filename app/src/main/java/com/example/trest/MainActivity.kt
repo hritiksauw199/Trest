@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
             val checkBox = view as CheckBox
             val isChecked = checkBox.isChecked
             val ingredient = checkBox.text.toString()
-            //updateSelectedIngredients(ingredient, isChecked)
+
             ingredientsManager.updateSelectedIngredients(selectedIngredients, ingredient, isChecked)
         }
 

@@ -4,7 +4,7 @@ import pandas as pd
 
 def recommend_recipe_general(model, tfidf_vectorizer, data, input_ingredients):
     input_tfidf = tfidf_vectorizer.transform([' '.join(input_ingredients)])
-    distances, indices = model.kneighbors(input_tfidf)
+    _, indices = model.kneighbors(input_tfidf)
     recommendations = data.iloc[indices[0]]['Name'].tolist()
     return recommendations
 

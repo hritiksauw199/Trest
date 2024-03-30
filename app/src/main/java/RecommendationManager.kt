@@ -2,9 +2,6 @@ import android.content.Context
 import com.chaquo.python.PyObject
 import com.chaquo.python.Python
 import com.chaquo.python.android.AndroidPlatform
-import org.apache.commons.io.IOUtils
-import org.json.JSONArray
-import java.io.InputStream
 
 class RecommendationManager(private val context: Context) {
 
